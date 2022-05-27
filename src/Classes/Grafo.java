@@ -39,7 +39,7 @@ public class Grafo {
                 this.nuevaRuta(size);
             }
         this.agregarStock(size);
-            size++;
+        size++;
         }
     }
     
@@ -50,7 +50,7 @@ public class Grafo {
                 if(opcion == 1){
                     break;
                 }
-                String nombre = JOptionPane.showInputDialog(null, "Ingrese nombre de producto");
+                String nombre = JOptionPane.showInputDialog(null, "Ingrese nombre de producto \n\nProductos en stock:\n"+this.almacenes.buscarAlmacen(id).getProductos().info());
                 
                 int cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Cuántas unidades desea ingresar"));
                 if(cantidad<1){
@@ -76,21 +76,22 @@ public class Grafo {
         
         while(true){
             try{
-                cantEntradas = Integer.parseInt(JOptionPane.showInputDialog(null, "¿Cuantas entradas al Almacen "+(char)(idNuevo+65))+" desea registrar?");
-                        if(cantEntradas < 1){
-                            JOptionPane.showMessageDialog(null, "Debe haber por lo menos una entrada");
-                            continue;
-                        }
+                cantEntradas = Integer.parseInt(JOptionPane.showInputDialog(null, ("¿Cuantas entradas al Almacen "+(char)(idNuevo+65))+" desea registrar?\n\nCantidad de almacenes existentes: "+(idNuevo)));
+                if(cantEntradas < 1 || cantEntradas>idNuevo){
+                    JOptionPane.showMessageDialog(null, "Valor no válido");
+                    continue;
+                }
+                break;
             }catch(Exception e){
-                JOptionPane.showMessageDialog(null, "valor no válido");
-            }
-            break;
+                JOptionPane.showMessageDialog(null, "Valor no válido");
+                
+            }            
         }
         while (true){
             try{
                 
-                int entrada = Integer.parseInt(JOptionPane.showInputDialog(null, this.almacenes.info()+"\n\ningrese id de nueva entrada", "Nueva entrada a "+this.almacenes.buscarAlmacen(idNuevo).getNombre(), -1));              
-                if(entrada<0 || entrada>=idNuevo){
+                int entrada = Integer.parseInt(JOptionPane.showInputDialog(null, (this.almacenes.info()+"\n\ningrese id de nueva entrada"), ("Nueva entrada a "+this.almacenes.buscarAlmacen(idNuevo).getNombre()), -1));              
+                if(entrada<0 || entrada>=idNuevo || this.rutas[entrada][idNuevo] != 0){
                     JOptionPane.showMessageDialog(null, "Valor no válido");
                     continue;
                 }
@@ -112,21 +113,20 @@ public class Grafo {
         }
         while(true){
             try{
-                cantSalidas = Integer.parseInt(JOptionPane.showInputDialog(null, "¿Cuantas salidas desde el Almacen "+(char)(idNuevo+65))+" desea registrar?");
-                        if(cantSalidas < 1){
-                            JOptionPane.showMessageDialog(null, "Debe haber por lo menos una salida");
-                            continue;
-                        }
+                cantSalidas = Integer.parseInt(JOptionPane.showInputDialog(null, ("¿Cuantas salidas desde el Almacen "+(char)(idNuevo+65))+" desea registrar?"));
+                    if(cantSalidas < 1 || cantSalidas > idNuevo){
+                        JOptionPane.showMessageDialog(null, "Valor no válido");
+                        continue;
+                    }
+                    break;
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, "valor no válido");
-            }
-            break;
+            }            
         }
         while (true){
-            try{
-                
-                int salida = Integer.parseInt(JOptionPane.showInputDialog(null, this.almacenes.info()+"\n\ningrese id de nueva salida", "Nueva salida desde "+this.almacenes.buscarAlmacen(idNuevo).getNombre(), -1));              
-                if(salida<0 || salida>=idNuevo){
+            try{                
+                int salida = Integer.parseInt(JOptionPane.showInputDialog(null, (this.almacenes.info()+"\n\ningrese id de nueva salida"), ("Nueva salida desde "+this.almacenes.buscarAlmacen(idNuevo).getNombre()), -1));              
+                if(salida<0 || salida>=idNuevo || this.rutas[idNuevo][salida] != 0){
                     JOptionPane.showMessageDialog(null, "Valor no válido");
                     continue;
                 }
@@ -159,4 +159,10 @@ public class Grafo {
         }       
         return array;
     }
+
+    public int[][] getRutas() {
+        return rutas;
+    }
+    
+    
 }

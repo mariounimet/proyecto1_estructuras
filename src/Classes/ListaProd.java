@@ -68,9 +68,13 @@ public class ListaProd {
         Producto aux = this.pfirst;
         
         while(aux != null){
-            info += aux.getNombre()+": "+aux.getCantidad();
+            info += aux.getNombre()+": "+aux.getCantidad()+"\n";
             aux = this.proximo(aux);
-        }        
-        return info;
+        }
+        if (info.equals("")){
+            return "Almacen vacío";
+        }else{
+            return info;
+        }
     }
 }

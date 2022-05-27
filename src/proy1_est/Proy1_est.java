@@ -21,7 +21,19 @@ public class Proy1_est {
 
         Grafo g = new Grafo(26);
         
-        g.nuevoStock(3);
+        g.nuevoAlm();
+        g.nuevoAlm();
+        g.nuevoAlm();
+        
+        int[][] r = g.getRutas();
+        
+        for(int i=0; i<3; i++){
+            for(int j = 0; j<3; j++){
+                System.out.print(r[i][j]+"--");
+                
+            }
+            System.out.print("\n");
+        }
 
     }
     

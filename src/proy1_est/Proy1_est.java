@@ -18,7 +18,11 @@ public class Proy1_est {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       
+
+        Grafo g = new Grafo(26);
+        
+        g.nuevoStock(3);
+
     }
     
 }

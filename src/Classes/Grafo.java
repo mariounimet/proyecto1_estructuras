@@ -38,7 +38,33 @@ public class Grafo {
             if(size > 0){
                 this.nuevaRuta(size);
             }
+        this.agregarStock(size);
             size++;
+        }
+    }
+    
+    public void agregarStock(int id){
+        while(true){
+            try{
+                int opcion = JOptionPane.showConfirmDialog(null, "¿Desea agregar productos al Almacen "+(char)(id+65)+"?", "añadir productos", 0);
+                if(opcion == 1){
+                    break;
+                }
+                String nombre = JOptionPane.showInputDialog(null, "Ingrese nombre de producto");
+                
+                int cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Cuántas unidades desea ingresar"));
+                if(cantidad<1){
+                    JOptionPane.showMessageDialog(null, "Valor ingresado no válido");
+                    continue;
+                }
+                if(this.almacenes.buscarAlmacen(id).getProductos().buscarProducto(nombre) != null){
+                    this.almacenes.buscarAlmacen(id).getProductos().buscarProducto(nombre).agregar(cantidad);
+                }else{
+                    this.almacenes.buscarAlmacen(id).getProductos().insertar(cantidad, nombre);
+                }
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Valor ingresado no válido");
+            }
         }
     }
     

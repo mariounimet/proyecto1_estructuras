@@ -21,7 +21,7 @@ public class Proy1_est {
 
         Grafo g = new Grafo(26);
         
-        g.nuevoStock(3);
+        //g.nuevoStock(3);
 
     }
     

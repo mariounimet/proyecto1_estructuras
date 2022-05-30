@@ -48,6 +48,13 @@ public class Almacen {
             }
         }
     }
+    
+    public String info(){
+        String info = "";
+        
+        
+        return info;
+    }
 
     public Almacen getNext() {
         return next;

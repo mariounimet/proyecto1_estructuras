@@ -149,6 +149,42 @@ public class Grafo {
         
     }
     
+    public void reportePorAnchura(){
+        int [] orden = this.recorridoAncho(this.rutas);
+        String ordenSeguido = "";
+        for(int i: orden){
+            JOptionPane.showMessageDialog(null, this.almacenes.buscarAlmacen(i).getProductos().info(), this.almacenes.buscarAlmacen(i).getNombre(), 0);
+            ordenSeguido += this.almacenes.buscarAlmacen(i).getNombre() + "\n";
+        }        
+    }
+    
+    public int[] recorridoAncho(int[][] rutas){
+        if(this.size == 0){
+            return null;
+        }else{
+            int w;
+            int[] recorrido = new int[this.size];
+            for(int i = 0; i<this.size; i++){
+                recorrido[i] = -1;
+            }
+            recorrido[0] = 0;
+            Cola cola = new Cola();
+            
+            cola.encolar(0);
+            while(!cola.esVacio()){
+                w = cola.desencolar().getX();
+                for(int i = 0; i < this.size; i++){
+                    if(rutas[w][i] != 0 && recorrido[i] == -1){
+                        recorrido[i] = recorrido[w] + 1;
+                        cola.encolar(i);
+                    }
+                }
+            }           
+            return recorrido;
+        }
+        
+    }
+    
     public int[][] inicializar(int max){
         int[][] array= new int[max][max];
         

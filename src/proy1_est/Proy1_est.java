@@ -7,7 +7,7 @@ package proy1_est;
 
 import Classes.Grafo;
 import javax.swing.JOptionPane;
-
+import Classes.*;
 /**
  *
  * @author Mario
@@ -19,7 +19,10 @@ public class Proy1_est {
      */
     public static void main(String[] args) {
 
-        Grafo g = new Grafo(26);
+        EscritorLector test = new EscritorLector();
+        test.Seleccionador();
+        
+        //Grafo g = new Grafo(26);
         
         //g.nuevoStock(3);
 

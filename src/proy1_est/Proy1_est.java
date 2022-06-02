@@ -18,11 +18,16 @@ public class Proy1_est {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        EscritorLector test = new EscritorLector();
-        test.Seleccionador();
         
-        //Grafo g = new Grafo(26);
+        Grafo g = new Grafo(26);
+        while(Classes.EscritorLector){
+            g.cargarAlm(productos);
+        }
+        
+        EscritorLector test = new EscritorLector();
+        test.Seleccionador_lectura();
+        
+        
         
         //g.nuevoStock(3);
 

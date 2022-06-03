@@ -7,25 +7,24 @@ package proy1_est;
 
 import Classes.Grafo;
 import javax.swing.JOptionPane;
-import Classes.*;
+import Classes.EscritorLector;
 /**
  *
  * @author Mario
  */
 public class Proy1_est {
-    private static Grafo g;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        EscritorLector el = new EscritorLector();
         Grafo g = new Grafo(26);
-        while(Classes.EscritorLector){
-            g.cargarAlm(productos);
-        }
+        el.Seleccionador_lectura();
+        el.lectura(g);
+        el.escritura(g);
         
-        EscritorLector test = new EscritorLector();
-        test.Seleccionador_lectura();
+//        EscritorLector test = new EscritorLector();
+//        test.Seleccionador_lectura();
         
         
         

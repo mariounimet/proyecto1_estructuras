@@ -158,5 +158,32 @@ public class Grafo {
             }
         }       
         return array;
+    }  
+    /**
+     * @return the almacenes
+     */
+    public ListaAlm getAlmacenes() {
+        return almacenes;
     }
+
+    /**
+     * @return the rutas
+     */
+    public int[][] getRutas() {
+        return rutas;
+    }
+
+    /**
+     * @return the max
+     */
+    public int getMax() {
+        return max;
+    }
+
+    /**
+     * @return the size
+     */
+    public int getSize() {
+        return size;
+    }  
 }

@@ -73,4 +73,24 @@ public class ListaProd {
         }        
         return info;
     }
+    /**
+     * @return the pfirst
+     */
+    public Producto getPfirst() {
+        return pfirst;
+    }
+
+    /**
+     * @return the plast
+     */
+    public Producto getPlast() {
+        return plast;
+    }
+
+    /**
+     * @return the size
+     */
+    public int getSize() {
+        return size;
+    }
 }

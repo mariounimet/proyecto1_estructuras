@@ -57,9 +57,17 @@ public class ListaAlm {
             Almacen temp = this.plast;
             this.plast = newAlm;
             this.plast.setPrev(temp);
-            temp.setNext(newAlm);
+            temp.setNext(plast);
         }
-        size++;
+        this.size++;
+    }
+    
+    public void borrarUltimo(){
+        if(!this.esVacio()){
+            this.plast = this.plast.getPrev();
+            this.plast.setNext(null);
+            size--;
+        }
     }
     
     public String info(){

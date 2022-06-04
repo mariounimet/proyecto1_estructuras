@@ -11,10 +11,12 @@ package Classes;
  */
 public class Cola {
     private NodoCola pfirst, plast;
+    private int size;
 
     public Cola() {
         this.pfirst = null;
         this.plast = null;
+        this.size = 0;
     }
     
     public boolean esVacio(){
@@ -30,14 +32,17 @@ public class Cola {
             this.plast = nodo;
             temp.setNext(nodo);
         }
+        size++;
     }
     
     public NodoCola desencolar(){
         if(!this.esVacio()){
             NodoCola n = this.pfirst;
             this.pfirst = this.pfirst.getNext();
-            if(this.pfirst == null){
-                this.plast = null;
+            size--;
+            if(size == 0){
+                pfirst = null;
+                plast = null;
             }
             return n;
         }        

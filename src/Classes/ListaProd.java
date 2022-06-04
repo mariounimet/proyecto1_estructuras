@@ -55,11 +55,13 @@ public class ListaProd {
         Producto newprod = new Producto(cantidad, nombre);
         if(this.esVacio()){
             this.pfirst = this.plast = newprod;
-        }else{
+        }else if(this.buscarProducto(nombre) == null){
             Producto temp = this.plast;
             this.plast = newprod;
             this.plast.setPrev(temp);
             temp.setNext(newprod);
+        }else{
+            this.buscarProducto(nombre).agregar(cantidad);
         }
     }
     
@@ -77,4 +79,13 @@ public class ListaProd {
             return info;
         }
     }
+
+    public Producto getPfirst() {
+        return pfirst;
+    }
+
+    public Producto getPlast() {
+        return plast;
+    }
+    
 }

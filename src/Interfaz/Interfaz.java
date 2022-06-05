@@ -5,7 +5,9 @@
  */
 package Interfaz;
 
+import Classes.EscritorLector;
 import Classes.Grafo;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,6 +15,8 @@ import Classes.Grafo;
  */
 public class Interfaz extends javax.swing.JFrame {
     private Grafo grafo;
+    private EscritorLector el;
+    private Menu menu;
     /**
      * Creates new form Interfaz
      */
@@ -25,6 +29,14 @@ public class Interfaz extends javax.swing.JFrame {
 
     public void setGrafo(Grafo grafo) {
         this.grafo = grafo;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
+
+    public void setEl(EscritorLector el) {
+        this.el = el;
     }
 
     /**
@@ -40,6 +52,9 @@ public class Interfaz extends javax.swing.JFrame {
         reporte = new javax.swing.JButton();
         pedido = new javax.swing.JButton();
         nuevoAlm = new javax.swing.JButton();
+        gestion = new javax.swing.JButton();
+        guardar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -70,6 +85,30 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jPanel1.add(nuevoAlm, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
+        gestion.setText("Gestionar productos");
+        gestion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gestionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(gestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, 30));
+
+        guardar.setText("Guardar cambios");
+        guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+
+        jButton1.setText("Usar otra base de datos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
@@ -86,6 +125,29 @@ public class Interfaz extends javax.swing.JFrame {
     private void nuevoAlmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoAlmActionPerformed
         grafo.nuevoAlm();
     }//GEN-LAST:event_nuevoAlmActionPerformed
+
+    private void gestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestionActionPerformed
+        try{
+            int alm = Integer.parseInt(JOptionPane.showInputDialog(null, ("A qué almacen desea agregar productos"+grafo.getAlmacenes().info())));
+            if(alm <0 || alm>grafo.getSize()-1){
+                JOptionPane.showMessageDialog(null, "Valor no válido");
+            }else{
+                grafo.agregarStock(alm);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Valor no válido");
+        }
+    }//GEN-LAST:event_gestionActionPerformed
+
+    private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
+        this.el.escritura(grafo);
+    }//GEN-LAST:event_guardarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.menu.setVisible(true);
+        this.setVisible(false);
+        this.setGrafo(new Grafo(26));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,6 +185,9 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton gestion;
+    private javax.swing.JButton guardar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton nuevoAlm;
     private javax.swing.JButton pedido;

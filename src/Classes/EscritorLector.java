@@ -168,9 +168,8 @@ public class EscritorLector {
                         System.out.println("almacen");
                     } else {
                         String nombre = producto.getNombre();
-                        int cantidad_num = producto.getCantidad();
-                        String cantidad = String.valueOf(cantidad_num);
-                        info += nombre + "," +cantidad + "\n";
+                        int cantidad_num = producto.getCantidad();                      
+                        info += nombre + "," +cantidad_num + "\n";
                         producto = producto.getNext();
                         System.out.println("almacen");
                     }

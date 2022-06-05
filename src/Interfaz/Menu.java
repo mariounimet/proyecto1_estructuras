@@ -82,6 +82,9 @@ public class Menu extends javax.swing.JFrame {
         grafo.getAlmacenes().borrarUltimo();
         Interfaz i = new Interfaz();
         i.setGrafo(grafo);
+        i.setEl(el);
+        i.setMenu(this);
+        this.grafo = new Grafo(26);
     }//GEN-LAST:event_botonInicioActionPerformed
 
     /**

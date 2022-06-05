@@ -80,12 +80,12 @@ public class caminosMinimos {
     public String recuperar(int v, String camino){
         int anterior = this.ultimo[v];
         if (v != this.origen){
-            //camino += recuperar(anterior, camino);
-            //return camino += (" -> Almacen" + (char)(v+65));
+            camino += ("-->Almacen "+(char)(v+65)) + camino;
+            return recuperar(anterior, camino);
         }else{
-            return ("Almacen" + (char)(this.origen + 65));
+            return ("Almacen" + (char)(this.origen + 65)) + camino;
         }
-        return camino;
+        
     }
 
     public int[][] getPesos() {

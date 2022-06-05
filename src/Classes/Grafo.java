@@ -153,11 +153,9 @@ public class Grafo {
     public void reportePorAnchura(){
         int [] orden = this.recorridoAncho(this.rutas);
         
-        String ordenSeguido = "";
         for(int i: orden){
             System.out.println(i);
             JOptionPane.showMessageDialog(null, this.almacenes.buscarAlmacen(i).getProductos().info(), this.almacenes.buscarAlmacen(i).getNombre(), 1);
-            ordenSeguido += this.almacenes.buscarAlmacen(i).getNombre() + "\n";
         }        
     }
     
@@ -189,7 +187,7 @@ public class Grafo {
         while(true){
         try{
                 cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, ("¿Cuántas unidades desea?\n"+nombre+": "+lp.buscarProducto(nombre).getCantidad())));
-                if(cantidad > lp.buscarProducto(nombre).getCantidad()){
+                if(cantidad < 0||cantidad > lp.buscarProducto(nombre).getCantidad()){
                     JOptionPane.showMessageDialog(null, "No existen suficientes unidades en stock");
                     continue;
                 }
@@ -226,10 +224,8 @@ public class Grafo {
                 }
                 pedirProducto(cantidad, idAlmacen, nombre);
             }
-        }else{
-            if(alm.getProductos().buscarProducto(nombre) != null){
+        }else{         
                 pedirProducto(cantidad, idAlmacen, nombre);
-            }
         }
     }
     
@@ -237,6 +233,7 @@ public class Grafo {
         int[] recorrido = recorridoAncho(this.rutas);
         int alm = -1;
         String rutaMinima;
+        caminosMinimos camino;
         for(int i: recorrido){
             if(this.almacenes.buscarAlmacen(i).getProductos().buscarProducto(nombreProd) != null){
                 if(this.almacenes.buscarAlmacen(i).getProductos().buscarProducto(nombreProd).getCantidad()>0 && alm == -1){
@@ -248,21 +245,27 @@ public class Grafo {
                         alm = i;
                     }
                 }
-            }
-        caminosMinimos camino = new caminosMinimos(this, alm);
-        JOptionPane.showMessageDialog(null, ("Se han pedido unidades al almacen "+(char)(alm+65)+"\nSe ha tomado como ruta:\n"+camino.recuperar(origen, "")));
+            }        
         }
-        
-        if(this.almacenes.buscarAlmacen(alm).getProductos().buscarProducto(nombreProd).getCantidad() >= cantidad){
+        camino = new caminosMinimos(this, alm);
+        camino.crearCaminos();
+        JOptionPane.showMessageDialog(null, ("Se han pedido unidades al almacen "+(char)(alm+65)+"\nSe ha tomado como ruta:\n"+camino.recuperar(origen, "")));
+        if(this.almacenes.buscarAlmacen(alm).getProductos().buscarProducto(nombreProd) != null){
+            if(this.almacenes.buscarAlmacen(alm).getProductos().buscarProducto(nombreProd).getCantidad() >= cantidad){
                 this.almacenes.buscarAlmacen(alm).getProductos().buscarProducto(nombreProd).retirar(cantidad);
                 JOptionPane.showMessageDialog(null, "pedido completado");
+            
             }else{
                 if(this.almacenes.buscarAlmacen(alm).getProductos().buscarProducto(nombreProd).getCantidad() > 0){
                     cantidad = cantidad - this.almacenes.buscarAlmacen(alm).getProductos().buscarProducto(nombreProd).getCantidad();
                     this.almacenes.buscarAlmacen(alm).getProductos().buscarProducto(nombreProd).setCantidad(0);
                 }
+                
                 pedirProducto(cantidad, origen, nombreProd);
-            }   
+            }
+        }else{
+            pedirProducto(cantidad, origen, nombreProd);
+        }
     }
     
     public int[] recorridoAncho(int[][] rutas){

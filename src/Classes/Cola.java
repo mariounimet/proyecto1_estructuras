@@ -18,11 +18,19 @@ public class Cola {
         this.plast = null;
         this.size = 0;
     }
-    
+    /**
+ * @author: Mario Quintero
+ * @deprecated: conocer si la cola está vacía
+ * @return: booleano
+ */        
     public boolean esVacio(){
         return pfirst == null;
     }
-    
+     /**
+ * @author: Mario Quintero
+ * @deprecated: ecolar nodo en la cola
+ * @param: x dato que almacena nodo a encolar
+ */        
     public void encolar(int x){
         NodoCola nodo = new NodoCola(x);
         if(this.esVacio()){
@@ -34,7 +42,11 @@ public class Cola {
         }
         size++;
     }
-    
+     /**
+ * @author: Mario Quintero
+ * @deprecated: desencola nodo
+ * @return: NodoCola desencolado
+ */         
     public NodoCola desencolar(){
         if(!this.esVacio()){
             NodoCola n = this.pfirst;

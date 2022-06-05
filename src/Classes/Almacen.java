@@ -24,32 +24,16 @@ public class Almacen {
         this.nombre = nombre;
         this.productos = new ListaProd();
     }
-    
+    /**
+ * @author: Mario Quintero
+ * @deprecated: carga productos al almacen
+ * @param cantidad numero de unidades a agregar
+ * @param nombre nombre de producto a agregar
+ */    
     public void cargarProducto(int cantidad, String nombre){
         this.productos.insertar(cantidad, nombre);
     }
-    
-    public void gestionarProductos(){
-        if(this.productos.esVacio()){
-            JOptionPane.showMessageDialog(null, "El "+this.nombre+" está vacío");
-        }else{
-            String nombreProd = JOptionPane.showInputDialog(null, this.productos.info());
-            if(this.productos.buscarProducto(nombreProd) != null){
-                Producto prod = this.productos.buscarProducto(nombreProd);
-                nombreProd = prod.getNombre();
-                
-                try{    
-                    int num = Integer.parseInt(JOptionPane.showInputDialog(null, nombreProd+"\nCantidad: "+prod.getCantidad(), "número de unidades a agregar"));
-                    prod.agregar(num);
-                    JOptionPane.showMessageDialog(null, num+ " Unidades agregadas");
-                }catch(NumberFormatException e){
-                    JOptionPane.showMessageDialog(null, "Debe escribir un número entero");
-                }               
-            }
-        }
-    }
-    
-
+ 
     public Almacen getNext() {
         return next;
     }

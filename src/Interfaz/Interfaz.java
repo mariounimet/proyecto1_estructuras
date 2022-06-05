@@ -128,7 +128,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void gestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestionActionPerformed
         try{
-            int alm = Integer.parseInt(JOptionPane.showInputDialog(null, ("A qué almacen desea agregar productos"+grafo.getAlmacenes().info())));
+            int alm = Integer.parseInt(JOptionPane.showInputDialog(null, ("A qué almacen desea agregar productos\n"+grafo.getAlmacenes().info())));
             if(alm <0 || alm>grafo.getSize()-1){
                 JOptionPane.showMessageDialog(null, "Valor no válido");
             }else{

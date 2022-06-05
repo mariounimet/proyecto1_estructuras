@@ -20,11 +20,19 @@ public class Producto {
         this.cantidad = cantidad;
         this.nombre = nombre;
     }
-    
+    /**
+ * @author: Mario Quintero
+ * @deprecated: restar unidades a la cantidad en stock
+ * @param: unidades numero que se restará
+ */     
     public void retirar(int unidades){
         this.cantidad -= unidades;
     }
-    
+     /**
+ * @author: Mario Quintero
+ * @deprecated: sumar unidades a la cantidad en stock
+ * @param: unidades numero que se sumará
+ */    
     public void agregar(int unidades){
         this.cantidad += unidades;
     }

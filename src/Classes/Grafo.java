@@ -22,17 +22,31 @@ public class Grafo {
         this.max = max;
         this.size = 0;
     }
-    
+    /**
+ * @author: Mario Quintero
+ * @deprecated: cargar almacen de base de datos
+ * @param: productos lista de productos perteneciente al almacen que se está cargando
+ */     
     public void cargarAlm(ListaProd productos){
         this.almacenes.insertar();
         this.almacenes.buscarAlmacen(size-1).setProductos(productos);
         size++;
     }
+        /**
+ * @author: Mario Quintero
+ * @deprecated: cargar ruta de un almacen a otro desde base de datos
+ * @param: i almacen de salida
+ * @param: j almacen de llegada
+ * @param: peso peso de la arista
+ */ 
     public void cargarRuta(char i, char j, int peso){
         this.rutas[(int)i-65][(int)j-65] = peso;
     }
     
-    
+     /**
+ * @author: Mario Quintero
+ * @deprecated: crear nuevo almacen en el grafo
+ */    
     public void nuevoAlm(){
         if(this.size  < this.max){
             this.almacenes.insertar();
@@ -43,7 +57,11 @@ public class Grafo {
         size++;
         }
     }
-    
+    /**
+ * @author: Mario Quintero
+ * @deprecated: agregar productos a un almacen
+ * @param: id almacen al que se le agregarán productos
+ */     
     public void agregarStock(int id){
         while(true){
             try{
@@ -68,7 +86,11 @@ public class Grafo {
             }
         }
     }
-    
+    /**
+ * @author: Mario Quintero
+ * @deprecated: crear nueva arista
+ * @param: idNuevo posicion de nuevo almacen agregado
+ */     
     public void nuevaRuta(int idNuevo){
         int entradasAgregadas = 0;
         int cantEntradas = 0;
@@ -149,7 +171,10 @@ public class Grafo {
         }
         
     }
-    
+    /**
+ * @author: Mario Quintero
+ * @deprecated: conocer stock de cada almacen
+ */    
     public void reportePorAnchura(){
         int [] orden = this.recorridoAncho(this.rutas);
         
@@ -158,7 +183,10 @@ public class Grafo {
             JOptionPane.showMessageDialog(null, this.almacenes.buscarAlmacen(i).getProductos().info(), this.almacenes.buscarAlmacen(i).getNombre(), 1);
         }        
     }
-    
+     /**
+ * @author: Mario Quintero
+ * @deprecated: realizar pedido
+ */    
     public void pedido(){
         ListaProd lp = new ListaProd();
         int[] recorrido = recorridoAncho(this.rutas);
@@ -228,7 +256,10 @@ public class Grafo {
                 pedirProducto(cantidad, idAlmacen, nombre);
         }
     }
-    
+    /**
+ * @author: Mario Quintero
+ * @deprecated: pedir producto a otro almacen
+ */     
     public void pedirProducto(int cantidad, int origen, String nombreProd){
         int[] recorrido = recorridoAncho(this.rutas);
         int alm = -1;
@@ -240,7 +271,9 @@ public class Grafo {
                     alm = i;
                 }else if(this.almacenes.buscarAlmacen(i).getProductos().buscarProducto(nombreProd).getCantidad()>0){
                     caminosMinimos cmActual = new caminosMinimos(this, alm);
+                    cmActual.crearCaminos();
                     caminosMinimos cmPrueba = new caminosMinimos(this, i);
+                    cmPrueba.crearCaminos();
                     if(cmActual.getD()[origen] > cmPrueba.getD()[origen]){
                         alm = i;
                     }
@@ -267,7 +300,11 @@ public class Grafo {
             pedirProducto(cantidad, origen, nombreProd);
         }
     }
-    
+     /**
+ * @author: Mario Quintero
+ * @deprecated: recorrer grafo por anchura
+ * @return: arreglo de números que representan el orden en el que se recorre el grafo
+ */    
     public int[] recorridoAncho(int[][] rutas){
         if(this.size == 0){
             return null;
@@ -296,7 +333,13 @@ public class Grafo {
             return recorrido;
         }        
     }
-    
+    /**
+ * @author: Mario Quintero
+ * @deprecated: busca elemento en arreglo
+ * @param: dato elemento a buscar
+ * @param array arreglo en el que se buscará
+ * @return booleano (encontrado o no)
+ */     
     public boolean estaEnArray(int dato, int[] array){
         for(int i: array){
             if(i==dato){
@@ -305,7 +348,12 @@ public class Grafo {
         }
         return false;
     }
-    
+    /**
+ * @author: Mario Quintero
+ * @deprecated: inicializar matriz de adyacencia
+ * @param: max numero maximo de vertices
+ * @return: matriz de adyacencia inicial
+ */     
     public int[][] inicializar(int max){
         int[][] array= new int[max][max];
         

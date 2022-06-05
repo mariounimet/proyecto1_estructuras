@@ -24,7 +24,10 @@ public class caminosMinimos {
         this.d = new int[n];
         this.f = new boolean[n];
     }
-    
+     /**
+ * @author: Mario Quintero
+ * @deprecated: busca el menor camino desde un nodo origen hacia cada uno de los demas nodos de un grafo
+ */    
     public void crearCaminos(){
         this.inicializar();
         for(int i = 0; i < this.n; i++){
@@ -42,8 +45,18 @@ public class caminosMinimos {
                 }
             }
         }
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                if(this.pesos[i][j] == 2000000000){
+                    this.pesos[i][j] = 0;
+                }
+            }
+        }
     }
-    
+     /**
+ * @author: Mario Quintero
+ * @deprecated: dar valores iniciales a los arreglos que se usarán
+ */   
     public void inicializar(){
         for(int i = 0; i < n; i++){
             this.f[i] = false;
@@ -64,7 +77,10 @@ public class caminosMinimos {
             }
         }
     }
-    
+    /**
+ * @author: Mario Quintero
+ * @deprecated: encontrar el nodo no explorado más cercano
+ */     
     public int minimo(){
         long mx = 2000000000;
         int v = 0;
@@ -76,15 +92,21 @@ public class caminosMinimos {
         }
         return v;
     }
-    
+    /**
+ * @author: Mario Quintero
+ * @deprecated: mostrar el camino desde el nodo origen a otro específico
+ * @param: v nodo a buscar
+ * @param: camino ruta que se retornará
+ * @return: "gráfica de la ruta tomada"
+ */    
     public String recuperar(int v, String camino){
         int anterior = this.ultimo[v];
         if (v != this.origen){
             camino += ("-->Almacen "+(char)(v+65)) + camino;
             return recuperar(anterior, camino);
-        }else{
-            return ("Almacen" + (char)(this.origen + 65)) + camino;
         }
+        return ("Almacen" + (char)(this.origen + 65)) + camino;
+        
         
     }
 

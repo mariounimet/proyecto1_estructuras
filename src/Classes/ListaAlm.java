@@ -24,18 +24,38 @@ public class ListaAlm {
         this.plast = null;
         this.size = 0;
     }
-    
+     /**
+ * @author: Mario Quintero
+ * @deprecated: conocer si la lista de almacenes está vacía
+ * @return: booleano
+ */         
     public boolean esVacio(){
         return pfirst == null;
     }
-    
+    /**
+ * @author: Mario Quintero
+ * @deprecated: encontrar nodo siguiente
+ * @param: nodo nodo del que se va a buscar su siguiente
+ * @return: Nodo almacen
+ */          
     public Almacen proximo(Almacen nodo){
         return nodo.getNext();
     }
+    /**
+ * @author: Mario Quintero
+ * @deprecated: encontrar nodo previo
+ * @param: nodo nodo del que se va a buscar su anterior
+ * @return: Nodo almacen
+ */  
     public Almacen previo(Almacen nodo){
         return nodo.getPrev();
     } 
-    
+    /**
+ * @author: Mario Quintero
+ * @deprecated: Buscar nodo almacen específico
+ * @param: numero de posicion "id" del almacen
+ * @return: Nodo almacen
+ */      
     public Almacen buscarAlmacen(int posicion){
         if(!this.esVacio()){
             Almacen aux = pfirst;            
@@ -46,7 +66,10 @@ public class ListaAlm {
         }
         return null;
     }
-    
+    /**
+ * @author: Mario Quintero
+ * @deprecated: insertar nodo almacen a la lista
+ */     
     public void insertar(){
         
         char letra = (char)(size+65);
@@ -61,7 +84,10 @@ public class ListaAlm {
         }
         this.size++;
     }
-    
+     /**
+ * @author: Mario Quintero
+ * @deprecated: borrar último nodo almacen de la lista
+ */     
     public void borrarUltimo(){
         if(!this.esVacio()){
             this.plast = this.plast.getPrev();
@@ -69,7 +95,11 @@ public class ListaAlm {
             size--;
         }
     }
-    
+     /**
+ * @author: Mario Quintero
+ * @deprecated: mostrar informacion de la lista de almacenes
+ * @return: String de los nombre de todos los almacenes con sus respectivos id
+ */     
     public String info(){
         String info = "";
         

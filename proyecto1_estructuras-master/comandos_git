@@ -1,0 +1,5 @@
+git init
+git add
+git commit -m "mensaje"
+git remote add origin https://github.com/mariounimet/proy1_est_datos.git
+git push -u origin master

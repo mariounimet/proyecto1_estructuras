@@ -40,9 +40,6 @@ public class Proy1_est {
         }
         
         
-        
-        
-        
         /*for(int i: cm.getD()){
             System.out.print(i+"-");
         }

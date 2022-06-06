@@ -50,32 +50,25 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         reporte = new javax.swing.JButton();
-        pedido = new javax.swing.JButton();
         nuevoAlm = new javax.swing.JButton();
         gestion = new javax.swing.JButton();
         guardar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        pedido1 = new javax.swing.JButton();
+        reporte1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        reporte.setText("Reporte de disponibilidad");
+        reporte.setText("Reporte de disponibilidad DFS");
         reporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reporteActionPerformed(evt);
             }
         });
-        jPanel1.add(reporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
-
-        pedido.setText("Hacer Pedido");
-        pedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pedidoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(pedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, -1));
+        jPanel1.add(reporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
 
         nuevoAlm.setText("Agregar almacen");
         nuevoAlm.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +76,7 @@ public class Interfaz extends javax.swing.JFrame {
                 nuevoAlmActionPerformed(evt);
             }
         });
-        jPanel1.add(nuevoAlm, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
+        jPanel1.add(nuevoAlm, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
 
         gestion.setText("Gestionar productos");
         gestion.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +84,7 @@ public class Interfaz extends javax.swing.JFrame {
                 gestionActionPerformed(evt);
             }
         });
-        jPanel1.add(gestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, 30));
+        jPanel1.add(gestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, 30));
 
         guardar.setText("Guardar cambios");
         guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +92,7 @@ public class Interfaz extends javax.swing.JFrame {
                 guardarActionPerformed(evt);
             }
         });
-        jPanel1.add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+        jPanel1.add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
 
         jButton1.setText("Usar otra base de datos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +100,23 @@ public class Interfaz extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, -1, -1));
+
+        pedido1.setText("Hacer Pedido");
+        pedido1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pedido1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(pedido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, -1));
+
+        reporte1.setText("Reporte de disponibilidad BFS");
+        reporte1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reporte1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(reporte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
@@ -115,12 +124,8 @@ public class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void reporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteActionPerformed
-        this.grafo.reportePorAnchura();
+        this.grafo.reportePorProfundidad();
     }//GEN-LAST:event_reporteActionPerformed
-
-    private void pedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedidoActionPerformed
-        grafo.pedido();
-    }//GEN-LAST:event_pedidoActionPerformed
 
     private void nuevoAlmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoAlmActionPerformed
         grafo.nuevoAlm();
@@ -148,6 +153,14 @@ public class Interfaz extends javax.swing.JFrame {
         this.setVisible(false);
         this.setGrafo(new Grafo(26));
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void pedido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedido1ActionPerformed
+        grafo.pedido();
+    }//GEN-LAST:event_pedido1ActionPerformed
+
+    private void reporte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporte1ActionPerformed
+        this.grafo.reportePorAnchura();
+    }//GEN-LAST:event_reporte1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,7 +203,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton nuevoAlm;
-    private javax.swing.JButton pedido;
+    private javax.swing.JButton pedido1;
     private javax.swing.JButton reporte;
+    private javax.swing.JButton reporte1;
     // End of variables declaration//GEN-END:variables
 }

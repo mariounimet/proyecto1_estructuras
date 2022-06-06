@@ -12,7 +12,11 @@ package Classes;
 public class Cola {
     private NodoCola pfirst, plast;
     private int size;
-
+    
+    /**
+ * @author: Santiago Urdaneta
+ * @deprecated: constructor de la cola
+ */        
     public Cola() {
         this.pfirst = null;
         this.plast = null;
@@ -28,7 +32,7 @@ public class Cola {
     }
      /**
  * @author: Mario Quintero
- * @deprecated: ecolar nodo en la cola
+ * @deprecated: encolar nodo en la cola
  * @param: x dato que almacena nodo a encolar
  */        
     public void encolar(int x){

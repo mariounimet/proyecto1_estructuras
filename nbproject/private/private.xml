@@ -3,14 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Mario/Desktop/1Estdatos/proy1_est/src/Interfaz/Menu.java</file>
-            <file>file:/Users/Mario/Desktop/1Estdatos/proy1_est/src/Classes/EscritorLector.java</file>
-            <file>file:/Users/Mario/Desktop/1Estdatos/proy1_est/src/Classes/ListaAlm.java</file>
-            <file>file:/Users/Mario/Desktop/1Estdatos/proy1_est/src/Interfaz/Interfaz.java</file>
-            <file>file:/Users/Mario/Desktop/1Estdatos/proy1_est/src/Classes/Cola.java</file>
-            <file>file:/Users/Mario/Desktop/1Estdatos/proy1_est/src/Classes/Grafo.java</file>
-            <file>file:/Users/Mario/Desktop/1Estdatos/proy1_est/src/Classes/Almacen.java</file>
-            <file>file:/Users/Mario/Desktop/1Estdatos/proy1_est/src/Classes/caminosMinimos.java</file>
+            <file>file:/J:/Ruben/Desktop/proyecto1_estructuras-master/src/Interfaz/Interfaz.java</file>
+            <file>file:/J:/Ruben/Desktop/proyecto1_estructuras-master/src/proy1_est/Proy1_est.java</file>
+            <file>file:/J:/Ruben/Desktop/proyecto1_estructuras-master/src/Classes/ListaAlm.java</file>
+            <file>file:/J:/Ruben/Desktop/proyecto1_estructuras-master/src/Classes/NodoPila.java</file>
+            <file>file:/J:/Ruben/Desktop/proyecto1_estructuras-master/src/Classes/ListaProd.java</file>
+            <file>file:/J:/Ruben/Desktop/proyecto1_estructuras-master/src/Classes/Producto.java</file>
+            <file>file:/J:/Ruben/Desktop/proyecto1_estructuras-master/src/Classes/Pila.java</file>
+            <file>file:/J:/Ruben/Desktop/proyecto1_estructuras-master/src/Classes/NodoCola.java</file>
+            <file>file:/J:/Ruben/Desktop/proyecto1_estructuras-master/src/Classes/Grafo.java</file>
+            <file>file:/J:/Ruben/Desktop/proyecto1_estructuras-master/src/Classes/caminosMinimos.java</file>
         </group>
     </open-files>
 </project-private>
